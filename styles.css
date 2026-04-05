@@ -27,6 +27,7 @@ body {
     radial-gradient(circle at 86% 20%, #f1d9bf 0%, transparent 48%),
     linear-gradient(180deg, #f7f5ef 0%, #f2ece0 100%);
   line-height: 1.6;
+  overflow-x: hidden;
 }
 
 h1,
@@ -62,6 +63,7 @@ img {
 }
 
 .nav {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -173,12 +175,16 @@ img {
 }
 
 .btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   border: none;
   border-radius: 999px;
   padding: 0.7rem 1.2rem;
   font: inherit;
   font-weight: 600;
   cursor: pointer;
+  text-decoration: none;
   transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
 }
 
@@ -240,7 +246,7 @@ img {
 }
 
 .projects-grid {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(230px, 1fr));
 }
 
 .card,
@@ -281,6 +287,7 @@ img {
 
 .project-card a {
   font-weight: 700;
+  overflow-wrap: anywhere;
 }
 
 .contact-wrap {
@@ -296,6 +303,7 @@ img {
 
 .contact-list li {
   margin: 0.32rem 0;
+  overflow-wrap: anywhere;
 }
 
 .contact-form {
@@ -369,6 +377,10 @@ img {
   .skills-grid {
     grid-template-columns: 1fr;
   }
+
+  .hero-photo img {
+    width: min(320px, 78vw);
+  }
 }
 
 @media (max-width: 760px) {
@@ -380,7 +392,7 @@ img {
     position: absolute;
     left: 4vw;
     right: 4vw;
-    top: 66px;
+    top: calc(100% - 4px);
     background: #fffcf5;
     border: 1px solid var(--line);
     border-radius: 14px;
@@ -397,5 +409,64 @@ img {
 
   .section {
     padding: 3.2rem 0;
+  }
+}
+
+@media (max-width: 520px) {
+  .container {
+    width: min(1120px, 94vw);
+  }
+
+  .hero {
+    padding: 2.8rem 0 1.8rem;
+  }
+
+  .hero h1 {
+    font-size: clamp(1.8rem, 10vw, 2.4rem);
+  }
+
+  .hero-photo {
+    padding: 0.8rem;
+  }
+
+  .hero-photo img {
+    width: min(270px, 72vw);
+  }
+
+  .hero-cta {
+    width: 100%;
+  }
+
+  .hero-cta .btn {
+    width: 100%;
+  }
+
+  .card,
+  .skill-block,
+  .timeline-item,
+  .project-card,
+  .contact-form,
+  .contact-info {
+    padding: 0.95rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .projects-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .reveal,
+  .reveal.show,
+  .btn {
+    transition: none;
+    transform: none;
+    opacity: 1;
   }
 }
