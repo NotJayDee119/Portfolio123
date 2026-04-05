@@ -39,4 +39,4 @@ Vercel will provide a public URL after deployment.
 ## Personalization Notes
 
 - Replace `assets/jaydee-photo.svg` with your real professional photo if available.
-- Resume download is currently wired to `resume/Resume_4.pdf`. Replace that file or update links in `index.html` if needed.
+- Resume button is currently linked to `https://canva.link/tlcy584zx024iu8`. Update links in `index.html` if needed.
